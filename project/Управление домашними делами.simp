@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sim-project version="11.91" multi-file="no" uid="simpb8ae7b37a59c4f05a11a9620d8ed162a">
+  <meta>
+    <name>Управление домашними делами</name>
+    <authors> Evgeny</authors>
+    <description>Приложение для контроля за хозяйственной деятельностью дома
+- доходы/расходы
+- учеба детей
+- ежедневник
+...
+</description>
+  </meta>
+  <counters models="1">
+    <entity-names>
+      <counter>
+        <item-type type-id="" type="DrawingItem" />
+        <value>1</value>
+      </counter>
+      <counter>
+        <item-type type-id="swimlane" type="UmlSwimlane" />
+        <value>1</value>
+      </counter>
+      <counter>
+        <item-type type-id="" type="LineItem" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="" type="RoundedRectangleItem" />
+        <value>2</value>
+      </counter>
+    </entity-names>
+    <entity-ids>
+      <counter>
+        <item-type type-id="" type="AbstractElementGroup" />
+        <value>222</value>
+      </counter>
+      <counter>
+        <item-type type-id="shape" type="AbstractShapeItem" />
+        <value>6</value>
+      </counter>
+      <counter>
+        <item-type type-id="swimlane" type="UmlSwimlane" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="universal-connector" type="UniversalConnector" />
+        <value>12</value>
+      </counter>
+      <counter>
+        <item-type type-id="generalization" type="UmlGeneralization" />
+        <value>5</value>
+      </counter>
+      <counter>
+        <item-type type-id="comment" type="UmlComment" />
+        <value>5</value>
+      </counter>
+      <counter>
+        <item-type type-id="comment-connector" type="UmlCommentConnector" />
+        <value>5</value>
+      </counter>
+    </entity-ids>
+    <diagrams>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlCommunicationDiagram</type>
+        <value>1</value>
+      </counter>
+    </diagrams>
+    <fields />
+  </counters>
+  <alias-groups />
+  <management uid="md-494d212199ad456ca813c6afba12701e" name="" task-id-sequence="0">
+    <persons>
+      <person id="P7f3e72ff2c4340c5b82aec1c12a417b1">
+        <first-name />
+        <last-name>Evgeny</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+      </person>
+    </persons>
+    <teams />
+    <sprints />
+    <projects />
+    <modules />
+    <tasks />
+    <to-dos />
+  </management>
+  <glossary id="glsr-bd81dccf6bf24df9b009768413e83aac" />
+  <types default="UML">
+    <type-sets>
+      <type-set file="UmlTypes.xml" />
+    </type-sets>
+    <custom-types />
+  </types>
+  <items>
+    <item id="ac2d4aeed4694462a0a07ea0b671f6ab" cid="CMT001" type="comment" name="Comment" style-class="" visibility="package" creator="P7f3e72ff2c4340c5b82aec1c12a417b1" creation-date="03/22/2019 17:42:34">
+      <comment>подразумевается что сервер делается один раз и вполседствии не меняется</comment>
+    </item>
+    <item id="diada1c42ba0d2470b82b1ea830514804d8910" cid="CN001" type="comment-connector" name="" style-class="" visibility="package" creator="P7f3e72ff2c4340c5b82aec1c12a417b1" creation-date="03/22/2019 17:42:34" from="ac2d4aeed4694462a0a07ea0b671f6ab" to="di3ce9c6c43df2455794d944bc7748bd177576" />
+    <item id="2dc977cd3aa448ec91085e980df0bbc6" cid="CMT002" type="comment" name="Comment" style-class="" visibility="package" creator="P7f3e72ff2c4340c5b82aec1c12a417b1" creation-date="03/22/2019 17:43:17">
+      <comment>менеджер будет дополняться для обработки сообщений для новых хандлеров</comment>
+    </item>
+    <item id="dif3626d7061d545b1bc5891efbf693f9f9877" cid="CN002" type="comment-connector" name="" style-class="" visibility="package" creator="P7f3e72ff2c4340c5b82aec1c12a417b1" creation-date="03/22/2019 17:43:17" from="2dc977cd3aa448ec91085e980df0bbc6" to="di3ce9c6c43df2455794d944bc7748bd177576" />
+    <item id="f050abf2fad14b249f84b97cfdd86ad7" cid="CMT003" type="comment" name="Comment" style-class="" visibility="package" creator="P7f3e72ff2c4340c5b82aec1c12a417b1" creation-date="03/22/2019 17:44:50">
+      <comment>обработчики - независимые сервисы</comment>
+    </item>
+    <item id="dic3fbf56e583d4b8f9f01742e464efdc95081" cid="CN003" type="comment-connector" name="" style-class="" visibility="package" creator="P7f3e72ff2c4340c5b82aec1c12a417b1" creation-date="03/22/2019 17:44:50" from="f050abf2fad14b249f84b97cfdd86ad7" to="di3ce9c6c43df2455794d944bc7748bd177576" />
+    <item id="2d43e38f71614ebd85faeb25eb6c7d16" cid="CMT004" type="comment" name="Comment" style-class="" visibility="package" creator="P7f3e72ff2c4340c5b82aec1c12a417b1" creation-date="03/22/2019 17:51:05">
+      <comment>обработчики - независимые сервисы</comment>
+    </item>
+    <item id="di264d6db4164a447593e4912794732cd97102" cid="CN004" type="comment-connector" name="" style-class="" visibility="package" creator="P7f3e72ff2c4340c5b82aec1c12a417b1" creation-date="03/22/2019 17:51:05" from="2d43e38f71614ebd85faeb25eb6c7d16" to="di3ce9c6c43df2455794d944bc7748bd177576" />
+  </items>
+  <models>
+    <model id="p77524e1aeecf47a59718d4c6703da8ac_646108478" name="Model1" namespace="" order-index="1">
+      <meta>
+        <authors>
+          <author> Evgeny</author>
+        </authors>
+        <description />
+        <creation-date>03/22/2019 17:28:59</creation-date>
+        <change-date>01/01/0001 00:00:00</change-date>
+        <revision-count>0</revision-count>
+        <version />
+      </meta>
+      <abstract-items />
+      <sub-models />
+      <diagram type="uml-communication" id="pfe1779f083434e0f83ad58c3eb866467_991584229" name="CommunicationDiagram1" order-index="1" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> Evgeny</author>
+          </authors>
+          <description />
+          <creation-date>03/22/2019 17:28:59</creation-date>
+          <change-date>03/22/2019 17:51:44</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="9cab8a30ab4545feb7caefbe879dc3c0" cid="ELEM006" type="universal-connector" name="" style-class="" visibility="package" change-tracking-state="added" creator="P7f3e72ff2c4340c5b82aec1c12a417b1" creation-date="03/22/2019 17:40:13" from="di3ce9c6c43df2455794d944bc7748bd177576" />
+          <item id="a592a86104ff4abcb6a22aa4ffa98dcd" cid="ELEM003" type="universal-connector" name="" style-class="" visibility="package" change-tracking-state="added" creator="P7f3e72ff2c4340c5b82aec1c12a417b1" creation-date="03/22/2019 17:39:54" from="di3ce9c6c43df2455794d944bc7748bd177576" to="di3ce9c6c43df2455794d944bc7748bd177576" />
+          <item id="29f8b377b24c4c738e5ade4238323682" cid="ELEM004" type="universal-connector" name="" style-class="" visibility="package" change-tracking-state="added" creator="P7f3e72ff2c4340c5b82aec1c12a417b1" creation-date="03/22/2019 17:40:00" from="di3ce9c6c43df2455794d944bc7748bd177576" to="di3ce9c6c43df2455794d944bc7748bd177576" />
+        </abstract-items>
+        <layer id="e8a852012e6f4348bf2c69e69bc40441" name="Default" visible="true" enabled="true" locked="false">
+          <item id="di3ce9c6c43df2455794d944bc7748bd177576" iid="a670f106e20b4a3eaa6c5276b3a9c23e" name="Element1" creation-date="03/22/2019 17:29:53" order-index="0" type="drawing-shape">
+            <layout ax="213" ay="-9" awidth="140" aheight="86" x="213" y="-9" width="140" height="86" />
+            <drawing-shape type="Rectangle">
+              <text>Сервер
+отвечает только за прием и отправку данных</text>
+            </drawing-shape>
+            <style style-name="Dark Blue" shadow-type="smooth" shadow-offset="1,1" shadow-visible="true" shadow-color="#32000000" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+              <text-style type="name" use-defaults="false" color="#FFFFFFFF" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="text" use-defaults="false" color="#FFFFFFFF" font="Verdana;9;" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="tagged-value" use-defaults="false" color="#FFFFFFFF" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="stereotype" use-defaults="false" color="#FFFFFFFF" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <background type="solid" color="#FF2B508B" color2="#FFEBEBEB" />
+              <border color="#FF093170" width="3" dash-style="Solid" />
+              <label-connector color="#80000000" width="1" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#32000000" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+                  <text-style type="name" use-defaults="false" color="#FFFFFFFF" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="text" use-defaults="false" color="#FFFFFFFF" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+                  <text-style type="tagged-value" use-defaults="false" color="#FFFFFFFF" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="stereotype" use-defaults="false" color="#FFFFFFFF" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <background type="solid" color="#FF093170" color2="#FF87CEFA" />
+                  <border color="#FF093170" width="1" dash-style="Solid" />
+                  <label-connector color="#FF000000" width="1" dash-style="Solid" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+          </item>
+          <item id="di3ce9c6c43df2455794d944bc7748bd177576" iid="bf9fc474d7b143a392b75b829a2af768" name="Element1" creation-date="03/22/2019 17:29:53" order-index="0" type="drawing-shape">
+            <layout ax="213" ay="135" awidth="140" aheight="86" x="213" y="135" width="140" height="86" />
+            <drawing-shape type="Rectangle">
+              <text>Менеджер
+смотрит тип сообщения и передает соответсвующему обработчику</text>
+            </drawing-shape>
+            <style style-name="Dark Blue" shadow-type="smooth" shadow-offset="1,1" shadow-visible="true" shadow-color="#32000000" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+              <text-style type="name" use-defaults="false" color="#FFFFFFFF" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="text" use-defaults="false" color="#FFFFFFFF" font="Verdana;9;" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="tagged-value" use-defaults="false" color="#FFFFFFFF" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="stereotype" use-defaults="false" color="#FFFFFFFF" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <background type="solid" color="#FF2B508B" color2="#FFEBEBEB" />
+              <border color="#FF093170" width="3" dash-style="Solid" />
+              <label-connector color="#80000000" width="1" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#32000000" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+                  <text-style type="name" use-defaults="false" color="#FFFFFFFF" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="text" use-defaults="false" color="#FFFFFFFF" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+                  <text-style type="tagged-value" use-defaults="false" color="#FFFFFFFF" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="stereotype" use-defaults="false" color="#FFFFFFFF" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <background type="solid" color="#FF093170" color2="#FF87CEFA" />
+                  <border color="#FF093170" width="1" dash-style="Solid" />
+                  <label-connector color="#FF000000" width="1" dash-style="Solid" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+          </item>
+          <item id="di3ce9c6c43df2455794d944bc7748bd177576" iid="2847f2e526dc45e0873582e4e680c3c0" name="Element1" creation-date="03/22/2019 17:29:53" order-index="0" type="drawing-shape">
+            <layout ax="73" ay="279" awidth="140" aheight="52" x="73" y="279" width="140" height="52" />
+            <drawing-shape type="Rectangle">
+              <text>Обработчик 1
+здесь лежит логика</text>
+            </drawing-shape>
+            <style style-name="Dark Blue" shadow-type="smooth" shadow-offset="1,1" shadow-visible="true" shadow-color="#32000000" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+              <text-style type="name" use-defaults="false" color="#FFFFFFFF" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="text" use-defaults="false" color="#FFFFFFFF" font="Verdana;9;" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="tagged-value" use-defaults="false" color="#FFFFFFFF" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="stereotype" use-defaults="false" color="#FFFFFFFF" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <background type="solid" color="#FF2B508B" color2="#FFEBEBEB" />
+              <border color="#FF093170" width="3" dash-style="Solid" />
+              <label-connector color="#80000000" width="1" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#32000000" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+                  <text-style type="name" use-defaults="false" color="#FFFFFFFF" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="text" use-defaults="false" color="#FFFFFFFF" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+                  <text-style type="tagged-value" use-defaults="false" color="#FFFFFFFF" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="stereotype" use-defaults="false" color="#FFFFFFFF" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <background type="solid" color="#FF093170" color2="#FF87CEFA" />
+                  <border color="#FF093170" width="1" dash-style="Solid" />
+                  <label-connector color="#FF000000" width="1" dash-style="Solid" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+          </item>
+          <item id="di3ce9c6c43df2455794d944bc7748bd177576" iid="b5a55af715574b19aae88e66f6903793" name="Element1" creation-date="03/22/2019 17:29:53" order-index="0" type="drawing-shape">
+            <layout ax="268" ay="279" awidth="140" aheight="52" x="268" y="279" width="140" height="52" />
+            <drawing-shape type="Rectangle">
+              <text>Обработчик 2
+здесь лежит логика</text>
+            </drawing-shape>
+            <style style-name="Dark Blue" shadow-type="smooth" shadow-offset="1,1" shadow-visible="true" shadow-color="#32000000" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+              <text-style type="name" use-defaults="false" color="#FFFFFFFF" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="text" use-defaults="false" color="#FFFFFFFF" font="Verdana;9;" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="tagged-value" use-defaults="false" color="#FFFFFFFF" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="stereotype" use-defaults="false" color="#FFFFFFFF" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <background type="solid" color="#FF2B508B" color2="#FFEBEBEB" />
+              <border color="#FF093170" width="3" dash-style="Solid" />
+              <label-connector color="#80000000" width="1" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#32000000" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+                  <text-style type="name" use-defaults="false" color="#FFFFFFFF" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="text" use-defaults="false" color="#FFFFFFFF" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+                  <text-style type="tagged-value" use-defaults="false" color="#FFFFFFFF" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="stereotype" use-defaults="false" color="#FFFFFFFF" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <background type="solid" color="#FF093170" color2="#FF87CEFA" />
+                  <border color="#FF093170" width="1" dash-style="Solid" />
+                  <label-connector color="#FF000000" width="1" dash-style="Solid" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+          </item>
+          <item id="a592a86104ff4abcb6a22aa4ffa98dcd" iid="4c58bacbd8bc49a3b88310313e22be5d" creation-date="03/22/2019 17:39:54" order-index="2" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="236" y1="221" x2="181" y2="279" start-border-pos="0.708928571428571" end-border-pos="0.192857142857143" name-position="0,0">
+              <points>
+                <point x="236" y="221" />
+                <point x="181" y="279" />
+              </points>
+            </layout>
+            <relation from="di3ce9c6c43df2455794d944bc7748bd177576" from-iid="bf9fc474d7b143a392b75b829a2af768" to="di3ce9c6c43df2455794d944bc7748bd177576" to-iid="2847f2e526dc45e0873582e4e680c3c0" />
+          </item>
+          <item id="29f8b377b24c4c738e5ade4238323682" iid="162be730a4894242bef81ff9185a8343" creation-date="03/22/2019 17:40:00" order-index="3" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="306" y1="221" x2="345" y2="279" start-border-pos="0.583928571428571" end-border-pos="0.1375" name-position="0,0">
+              <points>
+                <point x="306" y="221" />
+                <point x="345" y="279" />
+              </points>
+            </layout>
+            <relation from="di3ce9c6c43df2455794d944bc7748bd177576" from-iid="bf9fc474d7b143a392b75b829a2af768" to="di3ce9c6c43df2455794d944bc7748bd177576" to-iid="b5a55af715574b19aae88e66f6903793" />
+          </item>
+          <item id="9cab8a30ab4545feb7caefbe879dc3c0" iid="a6175e22434449ee8e933ee001f2680e" creation-date="03/22/2019 17:40:13" order-index="4" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="283" y1="135" x2="283" y2="77" start-border-pos="0.125" end-border-pos="0.625" name-position="0,0">
+              <points>
+                <point x="283" y="135" />
+                <point x="283" y="77" />
+              </points>
+            </layout>
+            <relation from="di3ce9c6c43df2455794d944bc7748bd177576" from-iid="bf9fc474d7b143a392b75b829a2af768" />
+          </item>
+          <item id="ac2d4aeed4694462a0a07ea0b671f6ab" iid="b6cdc18d715346109ac085394c56a5c5" creation-date="03/22/2019 17:42:34" order-index="5" type="entity">
+            <layout ax="56" ay="-9" awidth="140" aheight="86" x="56" y="-9" width="140" height="86" />
+          </item>
+          <item id="diada1c42ba0d2470b82b1ea830514804d8910" iid="3ea4de0beb564f3e83ebabdb93180308" creation-date="03/22/2019 17:42:34" order-index="6" type="comment-connector">
+            <layout line-style="oblique" lock-start-point="false" lock-end-point="false" lock-to-fields="false" auto-path="" x1="196" y1="34" x2="213" y2="34" start-border-pos="0.375" end-border-pos="0.875" name-position="0,0">
+              <points>
+                <point x="196" y="34" />
+                <point x="213" y="34" />
+              </points>
+            </layout>
+            <relation from="ac2d4aeed4694462a0a07ea0b671f6ab" from-iid="b6cdc18d715346109ac085394c56a5c5" to="di3ce9c6c43df2455794d944bc7748bd177576" to-iid="a670f106e20b4a3eaa6c5276b3a9c23e" />
+          </item>
+          <item id="2dc977cd3aa448ec91085e980df0bbc6" iid="274cf907202345ae8c88ff2bb841d279" creation-date="03/22/2019 17:43:17" order-index="7" type="entity">
+            <layout ax="36" ay="140" awidth="140" aheight="76" x="36" y="140" width="140" height="76" />
+          </item>
+          <item id="dif3626d7061d545b1bc5891efbf693f9f9877" iid="31dd51e147fa4932aa5a1a8720252542" creation-date="03/22/2019 17:43:17" order-index="8" type="comment-connector">
+            <layout line-style="oblique" lock-start-point="false" lock-end-point="false" lock-to-fields="false" auto-path="" x1="176" y1="178" x2="213" y2="178" start-border-pos="0.375" end-border-pos="0.875" name-position="0,0">
+              <points>
+                <point x="176" y="178" />
+                <point x="213" y="178" />
+              </points>
+            </layout>
+            <relation from="2dc977cd3aa448ec91085e980df0bbc6" from-iid="274cf907202345ae8c88ff2bb841d279" to="di3ce9c6c43df2455794d944bc7748bd177576" to-iid="bf9fc474d7b143a392b75b829a2af768" />
+          </item>
+          <item id="f050abf2fad14b249f84b97cfdd86ad7" iid="fda00eb7413d46d1950215d0f42614ae" creation-date="03/22/2019 17:44:50" order-index="9" type="entity">
+            <layout ax="73" ay="366.5" awidth="140" aheight="45" x="73" y="366.5" width="140" height="45" />
+          </item>
+          <item id="dic3fbf56e583d4b8f9f01742e464efdc95081" iid="a07067cccd4c4ce790bf295ae04f5c68" creation-date="03/22/2019 17:44:50" order-index="10" type="comment-connector">
+            <layout line-style="oblique" lock-start-point="false" lock-end-point="false" lock-to-fields="false" auto-path="" x1="143" y1="366" x2="143" y2="331" start-border-pos="0.125" end-border-pos="0.625" name-position="0,0">
+              <points>
+                <point x="143" y="366" />
+                <point x="143" y="331" />
+              </points>
+            </layout>
+            <relation from="f050abf2fad14b249f84b97cfdd86ad7" from-iid="fda00eb7413d46d1950215d0f42614ae" to="di3ce9c6c43df2455794d944bc7748bd177576" to-iid="2847f2e526dc45e0873582e4e680c3c0" />
+          </item>
+          <item id="2d43e38f71614ebd85faeb25eb6c7d16" iid="b5665fad69124bbfb7c0e1dd71c0e46c" creation-date="03/22/2019 17:51:05" order-index="11" type="entity">
+            <layout ax="268" ay="366.5" awidth="140" aheight="45" x="268" y="366.5" width="140" height="45" />
+          </item>
+          <item id="di264d6db4164a447593e4912794732cd97102" iid="587f74aa37bc4055b7e390def1adb245" creation-date="03/22/2019 17:51:05" order-index="12" type="comment-connector">
+            <layout line-style="oblique" lock-start-point="false" lock-end-point="false" lock-to-fields="false" auto-path="" x1="338" y1="366" x2="338" y2="331" start-border-pos="0.125" end-border-pos="0.625" name-position="0,0">
+              <points>
+                <point x="338" y="366" />
+                <point x="338" y="331" />
+              </points>
+            </layout>
+            <relation from="2d43e38f71614ebd85faeb25eb6c7d16" from-iid="b5665fad69124bbfb7c0e1dd71c0e46c" to="di3ce9c6c43df2455794d944bc7748bd177576" to-iid="b5a55af715574b19aae88e66f6903793" />
+          </item>
+        </layer>
+      </diagram>
+    </model>
+  </models>
+</sim-project>
