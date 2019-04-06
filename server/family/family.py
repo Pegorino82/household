@@ -1,5 +1,6 @@
 from .utils import calculate_age
-from .base import BudgetIncomes, BudgetOutcomes, BudgetIncomeItem, BudgetOutcomeItem
+# from .base import BudgetIncomes, BudgetOutcomes, BudgetIncomeItem, BudgetOutcomeItem
+from .base_1 import Source, BudgetItemFactory, BudgetAction
 
 
 class FamilyMember:
@@ -48,13 +49,21 @@ class FamilyBudget:
         '''
         return self.__outcomes
 
-    def add(self, item: BudgetIncomes):
-        self.__incomes.append(item)  # композиция
-        self.__amount += item.item.amount()
+    # def add(self, item: BudgetIncomes):
+    #     self.__incomes.append(item)  # композиция
+    #     self.__amount += item.item.amount()
+    #
+    # def remove(self, item: BudgetOutcomes):
+    #     self.__outcomes.append(item)  # композиция
+    #     self.__amount -= item.item.amount()
 
-    def remove(self, item: BudgetOutcomes):
-        self.__outcomes.append(item)  # композиция
-        self.__amount -= item.item.amount()
+    def add(self, item: BudgetItem):
+        if item.is_income():
+            self.__incomes.append(item)  # композиция
+            self.__amount += item.item.amount()
+        else:
+            self.__outcomes.append(item)  # композиция
+            self.__amount -= item.item.amount()
 
 
 class Family:

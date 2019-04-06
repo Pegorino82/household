@@ -3,6 +3,8 @@ import abc
 
 class AbstractBudgetItem(abc.ABC):
     '''
+    (например организация - работодатель, или для расходов конкретная заправка,
+    конкретный магазин)
     контролирует наличие у источника дохода/цели расходования:
     - названия,
     - постоянный источник дохода/цель расходования или нет,
@@ -81,3 +83,26 @@ class BudgetOutcomes:
     def __init__(self, source, budget_outcome_item: BudgetOutcomeItem):
         self.source = source  # на кого-то из семьи, на всю семью или вне семьи (возможно придется придумать адаптер)
         self.item = budget_outcome_item
+
+
+class BudgetItemFactory:
+    '''фабричный метод для создания статьи бюджета (поступления/расходы)'''
+    INCOME = 'поступление'
+    OUTCOME = 'расход'
+    DEFAULT = ''
+
+    def create_budget_item(self, action, source, amount):
+        '''
+        создает статью бюджета
+        :param action: поступление или расход
+        :param source: источник (пока название)
+        :param amount:
+        :return:
+        '''
+        if action == self.INCOME:
+            item = BudgetIncomeItem(source, amount)
+        elif action == self.OUTCOME:
+            item = BudgetOutcomeItem(source, amount)
+        else:
+            item = BudgetItem(source, amount)
+        return item
