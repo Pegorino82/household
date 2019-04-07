@@ -1,108 +1,82 @@
 import abc
 
 
-class AbstractBudgetItem(abc.ABC):
+class AbstractSource(abc.ABC):
     '''
-    (например организация - работодатель, или для расходов конкретная заправка,
-    конкретный магазин)
+    (например организация - постоянный работодатель, фриланс..., или для расходов - заправка, магазин...)
     контролирует наличие у источника дохода/цели расходования:
-    - названия,
-    - постоянный источник дохода/цель расходования или нет,
-    ... в процессе добавить требования
+    - названия
     '''
 
     @abc.abstractmethod
-    def get_name(self):
-        pass
-
-    @abc.abstractmethod
-    def is_regular(self):
+    def name(self):
         pass
 
 
-class BudgetItem(AbstractBudgetItem):
-    def __init__(self, name, amount, is_regular=False):
+class Source(AbstractSource):
+    '''абстрактный источник дохода/расхода'''
+
+    def __init__(self, name, is_regular=False):
         '''
         :param name: источник дохода/цель расходования
-        :param amount: размер поступления/расхода
         :param is_regular: посоянный доход/расход
         '''
         self._name = name
-        self._amount = amount
         self._is_regular = is_regular
 
-    def get_name(self):
+    def name(self):
         return self._name
 
     def is_regular(self):
         return self._is_regular
 
-    def amount(self):
-        return self._amount
 
-
-class BudgetIncomeItem(BudgetItem):
+class BudgetItem:
     '''
-    источник поступления в бюджет (например зар. плата, выигрыш ...)
+    источник поступления в бюджет/цель расходования
     '''
 
-    def __init__(self, source, amount: float, is_regular=False):
-        super().__init__(name=source, amount=amount, is_regular=is_regular)
+    def __init__(self, source: Source, amount: float, is_income=True):
+        self.source = source  # композиция
+        self.amount = amount if self.is_income else amount * -1
+        self._is_income = is_income
+
+    def is_income(self):
+        return self._is_income
 
     def __str__(self):
-        return f'{self.name} -> {self.amount}'
+        return f'{self.source.name} -> {self.amount}' if self.is_income() else f'{self.source.name} <- {self.amount}'
 
 
-class BudgetOutcomeItem(BudgetItem):
+class BudgetAction:
     '''
-    цель расходования (например питание, услуги ...)
-    '''
-
-    def __init__(self, target, amount: float, is_regular=False):
-        super().__init__(name=target, amount=amount, is_regular=is_regular)
-
-    def __str__(self):
-        return f'{self.name} <- {self.amount}'
-
-
-class BudgetIncomes:
-    '''
-    описывает кто принес поступления в бюджет
+    описывает на кого/что были расходованы средства, кто произвел пополнения в бюджет
     '''
 
-    def __init__(self, source, budget_income_item: BudgetIncomeItem):
-        self.source = source  # член семьи или кто-то не из семьи (возможно придется придумать адаптер)
-        self.item = budget_income_item
+    def __init__(self, family_member, budget_item: BudgetItem):
+        self.family_member = family_member  # член семьи или кто-то не из семьи (возможно придется придумать адаптер)
+        self.item = budget_item
 
 
-class BudgetOutcomes:
-    '''
-    описывает на что (кого) потратили
-    '''
-
-    def __init__(self, source, budget_outcome_item: BudgetOutcomeItem):
-        self.source = source  # на кого-то из семьи, на всю семью или вне семьи (возможно придется придумать адаптер)
-        self.item = budget_outcome_item
-
-
-class BudgetItemFactory:
-    '''фабричный метод для создания статьи бюджета (поступления/расходы)'''
+class BudgetActionFactory:
+    '''фабричный метод для создания поступлений/расходов'''
     INCOME = 'поступление'
     OUTCOME = 'расход'
-    DEFAULT = ''
 
-    def create_budget_item(self, action, source, amount):
+    def create_budget_action(self, action, amount, family_member, source: Source):
         '''
         создает статью бюджета
         :param action: поступление или расход
-        :param source: источник (пока название)
-        :param amount:
+        :param source: источник/цель
+        :param family_member: член семьи
+        :param amount: сумма
         :return:
         '''
+        item = None
         if action == self.INCOME:
-            item = BudgetIncomeItem(source, amount)
+            item = BudgetItem(source, amount, is_income=True)
         elif action == self.OUTCOME:
-            item = BudgetOutcomeItem(source, amount)
-        else:
-            item = BudgetItem(source, amount)
-        return item
+            item = BudgetItem(source, amount, is_income=False)
+
+        budget_action = BudgetAction(family_member, item)
+        return budget_action

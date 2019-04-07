@@ -1,6 +1,5 @@
 from .utils import calculate_age
-# from .base import BudgetIncomes, BudgetOutcomes, BudgetIncomeItem, BudgetOutcomeItem
-from .base_1 import Source, BudgetItemFactory, BudgetAction
+from .base import BudgetAction
 
 
 class FamilyMember:
@@ -19,6 +18,8 @@ class FamilyMember:
     def __str__(self):
         return f'{self.name} {self.patronymic} {self.surname}'
 
+    def __repr__(self):
+        return f'{self.name} {self.patronymic} {self.surname}'
 
 class FamilyBudget:
     __amount = 0
@@ -49,21 +50,13 @@ class FamilyBudget:
         '''
         return self.__outcomes
 
-    # def add(self, item: BudgetIncomes):
-    #     self.__incomes.append(item)  # композиция
-    #     self.__amount += item.item.amount()
-    #
-    # def remove(self, item: BudgetOutcomes):
-    #     self.__outcomes.append(item)  # композиция
-    #     self.__amount -= item.item.amount()
-
-    def add(self, item: BudgetItem):
-        if item.is_income():
+    def add(self, item: BudgetAction):
+        if item.item.is_income():
             self.__incomes.append(item)  # композиция
-            self.__amount += item.item.amount()
+            self.__amount += item.item.amount
         else:
             self.__outcomes.append(item)  # композиция
-            self.__amount -= item.item.amount()
+            self.__amount -= item.item.amount
 
 
 class Family:
@@ -83,22 +76,31 @@ class Family:
         pass
 
     def get_by_name(self, name):
-        return list(map(lambda x: x.name == name, self.__family_members)) or None
+        result = []
+        for member in self.get_all_members():
+            if member.name == name:
+                result.append(member)
+        return result
 
     def get_all_members(self):
         return self.__family_members
 
     def get_children(self):
-        pass
+        result = []
+        for member in self.get_all_members():
+            if member.is_child:
+                result.append(member)
+        return result
 
     def get_adult(self):
-        pass
+        result = []
+        for member in self.get_all_members():
+            if not member.is_child:
+                result.append(member)
+        return result
 
     def get_budget(self):
         return self.__family_budget.get
 
     def add_to_budget(self, item):
         self.__family_budget.add(item)
-
-    def remove_from_budget(self, item):
-        self.__family_budget.remove(item)
