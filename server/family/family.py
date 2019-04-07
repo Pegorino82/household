@@ -103,6 +103,10 @@ class Family:
                 result.append(member)
         return result
 
+    @property
+    def budget(self):
+        return self.__family_budget
+
     def get_budget(self):
         return self.__family_budget.get
 
