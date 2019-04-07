@@ -21,6 +21,7 @@ class FamilyMember:
     def __repr__(self):
         return f'{self.name} {self.patronymic} {self.surname}'
 
+
 class FamilyBudget:
     __amount = 0
     __incomes = []  # композиция
@@ -64,10 +65,13 @@ class Family:
     __family_budget = None
 
     def __init__(self):
-        self.__family_budget = FamilyBudget()  # композиция
+        __class__.__family_budget = FamilyBudget()  # композиция
 
     def __str__(self):
         return f'members count: {len(self.get_all_members())}, budget: {self.get_budget()}'
+
+    def __repr__(self):
+        return f'family'
 
     def add_member(self, family_member: FamilyMember):
         self.__family_members.append(family_member)
@@ -101,6 +105,12 @@ class Family:
 
     def get_budget(self):
         return self.__family_budget.get
+
+    def get_budget_incomes(self):
+        return self.__family_budget.get_incomes
+
+    def get_budget_outcomes(self):
+        return self.__family_budget.get_outcomes
 
     def add_to_budget(self, item):
         self.__family_budget.add(item)

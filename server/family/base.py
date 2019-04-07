@@ -24,11 +24,19 @@ class Source(AbstractSource):
         self._name = name
         self._is_regular = is_regular
 
+    @property
     def name(self):
         return self._name
 
+    @property
     def is_regular(self):
         return self._is_regular
+
+    def __repr__(self):
+        return f'{self.name}'
+
+    def __str__(self):
+        return f'{self.name}'
 
 
 class BudgetItem:
@@ -47,6 +55,9 @@ class BudgetItem:
     def __str__(self):
         return f'{self.source.name} -> {self.amount}' if self.is_income() else f'{self.source.name} <- {self.amount}'
 
+    def __repr__(self):
+        return f'{self.source.name} -> {self.amount}' if self.is_income() else f'{self.source.name} <- {self.amount}'
+
 
 class BudgetAction:
     '''
@@ -56,6 +67,12 @@ class BudgetAction:
     def __init__(self, family_member, budget_item: BudgetItem):
         self.family_member = family_member  # член семьи или кто-то не из семьи (возможно придется придумать адаптер)
         self.item = budget_item
+
+    def __repr__(self):
+        return f'{self.family_member} - {self.item}'
+
+    def __str__(self):
+        return f'{self.family_member} - {self.item}'
 
 
 class BudgetActionFactory:

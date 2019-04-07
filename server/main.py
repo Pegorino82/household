@@ -1,3 +1,4 @@
+from pprint import pprint
 from family import FamilyMember, Family, \
     Source, BudgetItem, BudgetAction, BudgetActionFactory
 
@@ -27,15 +28,31 @@ if __name__ == '__main__':
     factory = BudgetActionFactory()
     in_1 = factory.create_budget_action('поступление', 50000, father, fathers_job)
     in_2 = factory.create_budget_action('поступление', 45000, mother, mothers_job)
+    in_3 = factory.create_budget_action('поступление', 10000, father, fathers_freelance)
     out_1 = factory.create_budget_action('расход', 2000, son, children_shop)
+    out_2 = factory.create_budget_action('расход', 500, family, near_home_shop)
 
     # добавляем в семью
     family.add_to_budget(in_1)
     family.add_to_budget(in_2)
     family.add_to_budget(out_1)
+    family.add_to_budget(out_2)
+    family.add_to_budget(in_3)
 
 
     print('Семья >>', family)
     print('Дети >>', family.get_children())
     print('Взрослые >>', family.get_adult())
     print('Получили по имени >>', family.get_by_name('John'))
+    print('расходы >>', family.get_budget_outcomes())
+    print('поступления >>', family.get_budget_incomes())
+
+    family.add_to_budget(out_2)
+    print('Семья >>', family)
+
+
+
+
+    # pprint(family.__class__.__dict__)
+    # pprint(family.__dict__)
+
