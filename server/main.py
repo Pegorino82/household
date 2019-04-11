@@ -1,6 +1,7 @@
 from pprint import pprint
 from family import FamilyMember, Family, \
-    Source, BudgetItem, BudgetAction, BudgetActionFactory
+    Source, BudgetActionBuilder
+from observer import BudgetObserver
 
 if __name__ == '__main__':
     # создали членов семьи
@@ -11,6 +12,7 @@ if __name__ == '__main__':
 
     # создали семью и добавили членов семьи
     family = Family()
+    family.attach(BudgetObserver())  # добавляем наблюдателя за бюджетом
     family.add_member(father)
     family.add_member(mother)
     family.add_member(son)
@@ -25,12 +27,12 @@ if __name__ == '__main__':
     children_shop = Source("Children shop", is_regular=False)
 
     # создаем действия с бюджетом
-    factory = BudgetActionFactory()
-    in_1 = factory.create_budget_action('поступление', 50000, father, fathers_job)
-    in_2 = factory.create_budget_action('поступление', 45000, mother, mothers_job)
-    in_3 = factory.create_budget_action('поступление', 10000, father, fathers_freelance)
-    out_1 = factory.create_budget_action('расход', 2000, son, children_shop)
-    out_2 = factory.create_budget_action('расход', 500, family, near_home_shop)
+    factory = BudgetActionBuilder()
+    in_1 = factory.create_budget_action(factory.INCOME, 50000, father, fathers_job)
+    in_2 = factory.create_budget_action(factory.INCOME, 45000, mother, mothers_job)
+    in_3 = factory.create_budget_action(factory.INCOME, 10000, father, fathers_freelance)
+    out_1 = factory.create_budget_action(factory.OUTCOME, 2000, son, children_shop)
+    out_2 = factory.create_budget_action(factory.OUTCOME, 500, family, near_home_shop)
 
     # добавляем в семью
     family.add_to_budget(in_1)
@@ -38,7 +40,6 @@ if __name__ == '__main__':
     family.add_to_budget(out_1)
     family.add_to_budget(out_2)
     family.add_to_budget(in_3)
-
 
     print('Семья >>', family)
     print('Дети >>', family.get_children())
@@ -50,9 +51,5 @@ if __name__ == '__main__':
     family.add_to_budget(out_2)
     print('Семья >>', family)
 
-
-
-
     # pprint(family.__class__.__dict__)
     # pprint(family.__dict__)
-

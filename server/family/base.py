@@ -50,6 +50,7 @@ class BudgetItem:
         self.amount = amount if self.is_income else amount * -1
         self._is_income = is_income
 
+    # @property
     def is_income(self):
         return self._is_income
 
@@ -76,8 +77,8 @@ class BudgetAction:
         return f'{self.family_member} - {self.item}'
 
 
-class BudgetActionFactory:
-    '''фабричный метод для создания поступлений/расходов'''
+class BudgetActionBuilder:
+    '''паттерн строитель'''
     INCOME = 'поступление'
     OUTCOME = 'расход'
 

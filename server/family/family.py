@@ -1,5 +1,6 @@
 from .utils import calculate_age
 from .base import BudgetAction
+from observer import Subject
 
 
 class FamilyMember:
@@ -60,12 +61,13 @@ class FamilyBudget:
             self.__amount -= item.item.amount
 
 
-class Family:
+class Family(Subject):
     __family_members = []
     __family_budget = None
 
     def __init__(self):
         __class__.__family_budget = FamilyBudget()  # композиция
+        super().__init__()
 
     def __str__(self):
         return f'members count: {len(self.get_all_members())}, budget: {self.get_budget()}'
@@ -118,3 +120,5 @@ class Family:
 
     def add_to_budget(self, item):
         self.__family_budget.add(item)
+        self._subject_state = item, self.get_adult()  # передаем действие с бюджетом и список взрослых членов семьи
+        self._notify()

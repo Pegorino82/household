@@ -4,4 +4,4 @@ from .family import (
     FamilyMember
 )
 
-from .base import Source, BudgetItem, BudgetAction, BudgetActionFactory
+from .base import Source, BudgetItem, BudgetAction, BudgetActionBuilder
