@@ -52,6 +52,8 @@ if __name__ == '__main__':
     print('Семья >>', family)
 
     print(out_2 != out_1)
+    print(out_2 > out_1)
+    print(out_2 < out_1)
 
     # pprint(family.__class__.__dict__)
     # pprint(family.__dict__)

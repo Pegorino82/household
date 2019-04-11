@@ -1,5 +1,5 @@
 import abc
-from key_value import EqChecker
+from key_value import EqChecker, BudgetItemEq, BudgetActionEq
 
 
 class AbstractSource(abc.ABC):
@@ -41,7 +41,7 @@ class Source(AbstractSource):
         return f'{self.name}'
 
 
-class BudgetItem(EqChecker):
+class BudgetItem(BudgetItemEq):
     '''
     источник поступления в бюджет/цель расходования
     '''
@@ -66,14 +66,15 @@ class BudgetItem(EqChecker):
         return f'{self.source.name} -> {self.amount}' if self.is_income else f'{self.source.name} <- {self.amount}'
 
 
-class BudgetAction:
+class BudgetAction(BudgetActionEq):
     '''
     описывает на кого/что были расходованы средства, кто произвел пополнения в бюджет
     '''
 
-    def __init__(self, family_member, budget_item: BudgetItem):
-        self.family_member = family_member  # член семьи или кто-то не из семьи (возможно придется придумать адаптер)
-        self.item = budget_item
+    def __init__(self, family_member, item: BudgetItem):
+        # self.family_member = family_member  # член семьи или кто-то не из семьи (возможно придется придумать адаптер)
+        # self.item = budget_item
+        pass
 
     def __repr__(self):
         return f'{self.family_member} - {self.item}'

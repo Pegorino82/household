@@ -32,6 +32,36 @@ class EqChecker(object):
         return self.__dict__ != other.__dict__
 
 
+class BudgetItemEq(EqChecker):
+
+    def __gt__(self, other):
+        return self.amount > other.amount
+
+    def __ge__(self, other):
+        return self.amount >= other.amount
+
+    def __lt__(self, other):
+        return self.amount < other.amount
+
+    def __le__(self, other):
+        return self.amount <= other.amount
+
+
+class BudgetActionEq(EqChecker):
+
+    def __gt__(self, other):
+        return self.item > other.item
+
+    def __ge__(self, other):
+        return self.item >= other.item
+
+    def __lt__(self, other):
+        return self.item < other.item
+
+    def __le__(self, other):
+        return self.item <= other.item
+
+
 if __name__ == '__main__':
 
 
