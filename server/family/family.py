@@ -53,7 +53,7 @@ class FamilyBudget:
         return self.__outcomes
 
     def add(self, item: BudgetAction):
-        if item.item.is_income():
+        if item.item.is_income:
             self.__incomes.append(item)  # композиция
             self.__amount += item.item.amount
         else:

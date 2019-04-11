@@ -51,5 +51,7 @@ if __name__ == '__main__':
     family.add_to_budget(out_2)
     print('Семья >>', family)
 
+    print(out_2 != out_1)
+
     # pprint(family.__class__.__dict__)
     # pprint(family.__dict__)

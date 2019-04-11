@@ -38,7 +38,7 @@ class BudgetObserver(Observer):
     def changed(self, args):
         '''оповещае взрослых об изменении бюджета'''
         for member in args[1]:
-            if args[0].item.is_income():
+            if args[0].item.is_income:
                 print(f'сообщение для {member}: пополнение на {args[0].item.amount}')
             else:
                 print(f'сообщение для {member}: расход {args[0].item.amount}')

@@ -1,4 +1,5 @@
 import abc
+from key_value import EqChecker
 
 
 class AbstractSource(abc.ABC):
@@ -40,25 +41,29 @@ class Source(AbstractSource):
         return f'{self.name}'
 
 
-class BudgetItem:
+class BudgetItem(EqChecker):
     '''
     источник поступления в бюджет/цель расходования
     '''
 
-    def __init__(self, source: Source, amount: float, is_income=True):
-        self.source = source  # композиция
-        self.amount = amount if self.is_income else amount * -1
-        self._is_income = is_income
+    def __init__(self, source: Source, _amount: float, is_income=True):
+        # self.source = source  # композиция
+        # self.amount = amount if self.is_income else amount * -1
+        # self._is_income = is_income
+        pass
 
-    # @property
     def is_income(self):
         return self._is_income
 
+    @property
+    def amount(self):
+        return self._amount
+
     def __str__(self):
-        return f'{self.source.name} -> {self.amount}' if self.is_income() else f'{self.source.name} <- {self.amount}'
+        return f'{self.source.name} -> {self.amount}' if self.is_income else f'{self.source.name} <- {self.amount}'
 
     def __repr__(self):
-        return f'{self.source.name} -> {self.amount}' if self.is_income() else f'{self.source.name} <- {self.amount}'
+        return f'{self.source.name} -> {self.amount}' if self.is_income else f'{self.source.name} <- {self.amount}'
 
 
 class BudgetAction:
