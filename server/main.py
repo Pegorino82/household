@@ -27,12 +27,12 @@ if __name__ == '__main__':
     children_shop = Source("Children shop", is_regular=False)
 
     # создаем действия с бюджетом
-    factory = BudgetActionBuilder()
-    in_1 = factory.create_budget_action(factory.INCOME, 50000, father, fathers_job)
-    in_2 = factory.create_budget_action(factory.INCOME, 45000, mother, mothers_job)
-    in_3 = factory.create_budget_action(factory.INCOME, 10000, father, fathers_freelance)
-    out_1 = factory.create_budget_action(factory.OUTCOME, 2000, son, children_shop)
-    out_2 = factory.create_budget_action(factory.OUTCOME, 500, family, near_home_shop)
+    builder = BudgetActionBuilder()
+    in_1 = builder.create_budget_action(builder.INCOME, 50000, father, fathers_job)
+    in_2 = builder.create_budget_action(builder.INCOME, 45000, mother, mothers_job)
+    in_3 = builder.create_budget_action(builder.INCOME, 10000, father, fathers_freelance)
+    out_1 = builder.create_budget_action(builder.OUTCOME, 2000, son, children_shop)
+    out_2 = builder.create_budget_action(builder.OUTCOME, 500, family, near_home_shop)
 
     # добавляем в семью
     family.add_to_budget(in_1)

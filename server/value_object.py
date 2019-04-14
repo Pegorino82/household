@@ -6,7 +6,12 @@ class CannotBeChangeException(Exception):
         super().__init__('You cannot change values, create a new one')
 
 
-class EqChecker(object):
+class ValueObject(object):
+    '''базовый для ValueObject,
+    определяет свойства, переданные в конструктор;
+    запрещает устанавливать новые свойства;
+    реализует интерфейс для равенства / неравентства экземпляров класса (по словарю)'''
+
     def __new__(cls, *args, **kwargs):
         self = super().__new__(cls)
         # print(f'from Eq >> {getfullargspec(self.__init__)}')
@@ -14,11 +19,9 @@ class EqChecker(object):
         cls_props = getfullargspec(self.__init__)[0][1:]
         if args:
             for i, arg in enumerate(args):
-                # setattr(self, cls_props[i], arg)
                 self.__dict__.update({cls_props[i]: arg})
         if kwargs:
             for key, val in kwargs.items():
-                # setattr(self, key, val)
                 self.__dict__.update({key: val})
         return self
 
@@ -32,22 +35,9 @@ class EqChecker(object):
         return self.__dict__ != other.__dict__
 
 
-class BudgetItemEq(EqChecker):
-
-    def __gt__(self, other):
-        return self.amount > other.amount
-
-    def __ge__(self, other):
-        return self.amount >= other.amount
-
-    def __lt__(self, other):
-        return self.amount < other.amount
-
-    def __le__(self, other):
-        return self.amount <= other.amount
-
-
-class BudgetActionEq(EqChecker):
+class BudgetActionValueObject(ValueObject):
+    '''Дополнительно реализут механизм сравнения BudgetAction по BudgetItem (по сумме поступления -
+         болше, больше или равно, меньше, меньше или равно)'''
 
     def __gt__(self, other):
         return self.item > other.item
@@ -63,9 +53,7 @@ class BudgetActionEq(EqChecker):
 
 
 if __name__ == '__main__':
-
-
-    class T(EqChecker):
+    class T(ValueObject):
 
         def __init__(self, a, b):
             # self.a = a
