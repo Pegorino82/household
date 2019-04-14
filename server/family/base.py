@@ -1,5 +1,5 @@
 import abc
-from value_object import ValueObject, BudgetItemValueObject, BudgetActionValueObject
+from value_object import ValueObject, BudgetActionValueObject
 
 
 class AbstractSource(abc.ABC):
@@ -41,7 +41,7 @@ class Source(AbstractSource):
         return f'{self.name}'
 
 
-class BudgetItem(BudgetItemValueObject):
+class BudgetItem(ValueObject):
     '''
     источник поступления в бюджет/цель расходования
     '''
