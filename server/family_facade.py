@@ -7,6 +7,11 @@ class FamilyFacade:
     def __init__(self, family_: Family):
         self.__family = family_
         self._sources = []  # список источников дохода/расхода
+        self.action_builder = BudgetActionBuilder()
+
+    @property
+    def actions(self):
+        return self._family.budget.get_incomes
 
     @property
     def _family(self):
@@ -73,10 +78,9 @@ class FamilyFacade:
     def budget(self):
         return self._family.budget
 
-    # тут не знаю как строить Item, по идее все члены семьи и источники хранятся
-    # в самом FamilyFacade
-    def add_to_budget(self, item):
-        self._family.add_to_budget(item)
+    def add_to_budget(self, action, amount, family_member: FamilyMember, source: Source):
+        new_action = self.action_builder.create_budget_action(action, amount, family_member, source)
+        self._family.add_to_budget(new_action)
 
     def get_budget(self):
         return self._family.get_budget()
@@ -92,12 +96,26 @@ if __name__ == '__main__':
     family = Family()
     facade = FamilyFacade(family)
 
+    # создаем членов семьи
     facade.add_member('Jack', 'D', 'Black', '1980-05-15')
     facade.add_member('Mary', 'C', 'Black', '1984-10-01')
     facade.add_member('Kate', 'M', 'Black', '2005-07-20')
     facade.add_member('Poll', 'D', 'Black', '2015-09-15')
 
+    # создаем источники
+    fathers_job = facade.add_source("Father's job")
+    fathers_freelance = facade.add_source("Father's freelance", is_regular=False)
+    mothers_job = facade.add_source("Mothers's job")
+    near_home_shop = facade.add_source("Near home shop")
+    far_from_home_shop = facade.add_source("Far from home shop", is_regular=False)
+    children_shop = facade.add_source("Children shop", is_regular=False)
+
     print(facade.get_adult())
     print(facade.get_children())
-
+    print(facade.sources)
+    # производим действие с бюджетом
+    facade.add_to_budget('поступление', 50000, facade.get_adult()[0], fathers_job)
+    facade.add_to_budget('поступление', 40000, facade.get_adult()[1], mothers_job)
+    print(facade.get_budget_incomes())
+    print(facade.budget())
 

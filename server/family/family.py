@@ -2,6 +2,8 @@ from .utils import calculate_age
 from .base import BudgetAction
 from observer import Subject
 
+from functools import reduce
+
 
 class FamilyMember:
     __shift_age = 21  # возраст, с которого считаем, что человек взрослый
@@ -27,6 +29,11 @@ class FamilyBudget:
     __amount = 0
     __incomes = []  # композиция
     __outcomes = []  # композиция
+
+    def __str__(self):
+        incomes = reduce(lambda x, y: x.item.amount + y.item.amount, self.get_incomes) if self.get_incomes else []
+        outcomes = reduce(lambda x, y: x.item.amount + y.item.amount, self.get_outcomes) if self.get_outcomes else []
+        return f'{self.get} incomes: {incomes}, outcomes: {outcomes}'
 
     @property
     def get(self):
