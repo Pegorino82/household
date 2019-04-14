@@ -42,3 +42,9 @@ class ConsoleSender(Observer):
                 print(f'сообщение для {member}: пополнение на {item.item.amount}')
             else:
                 print(f'сообщение для {member}: расход {item.item.amount}')
+
+
+class SmsSender(Observer):
+
+    def changed(self, args):
+        pass
