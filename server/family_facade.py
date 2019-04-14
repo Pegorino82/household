@@ -1,4 +1,5 @@
 from family import *
+from observer import ConsoleSender
 
 
 class FamilyFacade:
@@ -8,6 +9,8 @@ class FamilyFacade:
         self.__family = family_
         self._sources = []  # список источников дохода/расхода
         self.action_builder = BudgetActionBuilder()
+
+        self._family.attach(ConsoleSender())
 
     @property
     def actions(self):

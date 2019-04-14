@@ -1,7 +1,7 @@
 from pprint import pprint
 from family import FamilyMember, Family, \
     Source, BudgetActionBuilder
-from observer import BudgetObserver
+from observer import ConsoleSender
 
 if __name__ == '__main__':
     # создали членов семьи
@@ -12,7 +12,7 @@ if __name__ == '__main__':
 
     # создали семью и добавили членов семьи
     family = Family()
-    family.attach(BudgetObserver())  # добавляем наблюдателя за бюджетом
+    family.attach(ConsoleSender())  # добавляем наблюдателя за бюджетом
     family.add_member(father)
     family.add_member(mother)
     family.add_member(son)

@@ -127,5 +127,4 @@ class Family(Subject):
 
     def add_to_budget(self, item):
         self.__family_budget.add(item)
-        self._subject_state = item, self.get_adult()  # передаем действие с бюджетом и список взрослых членов семьи
-        self._notify()
+        self._notify(item, self.get_adult()) # передаем действие и список взрослых

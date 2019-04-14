@@ -4,7 +4,7 @@ import abc
 class Subject:
     def __init__(self):
         self._observers = set()  # наблюдатели
-        self._subject_state = None
+        # self._subject_state = None
 
     def attach(self, observer):
         '''добавляет наблюдателя'''
@@ -16,10 +16,10 @@ class Subject:
         observer._subject = None
         self._observers.discard(observer)
 
-    def _notify(self):
+    def _notify(self, item, adults):
         '''оповещает'''
         for observer in self._observers:
-            observer.changed(self._subject_state)
+            observer.changed(item, adults)
 
 
 class Observer(metaclass=abc.ABCMeta):
@@ -33,12 +33,12 @@ class Observer(metaclass=abc.ABCMeta):
         pass
 
 
-class BudgetObserver(Observer):
+class ConsoleSender(Observer):
 
-    def changed(self, args):
+    def changed(self, item, adults):
         '''оповещае взрослых об изменении бюджета'''
-        for member in args[1]:
-            if args[0].item.is_income:
-                print(f'сообщение для {member}: пополнение на {args[0].item.amount}')
+        for member in adults:
+            if item.item.is_income:
+                print(f'сообщение для {member}: пополнение на {item.item.amount}')
             else:
-                print(f'сообщение для {member}: расход {args[0].item.amount}')
+                print(f'сообщение для {member}: расход {item.item.amount}')
