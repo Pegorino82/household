@@ -67,6 +67,7 @@ class DB:
             print(err)
 
     def _get_by_id(self, table_name, id_):
+        '''получаем элементы по Id'''
         try:
             self.cursor.execute(f'SELECT * FROM {table_name} WHERE id=?', (id_,))
             result = self.cursor.fetchone()
@@ -75,6 +76,7 @@ class DB:
             print(f'fetching from {tb_name} by id failed -> {err}')
 
     def _delete_by_key(self, tb_name, param, key='id'):
+        '''удаляет элемент по ключу, id по умолчанию'''
         sql = f'DELETE FROM {tb_name} WHERE {key}=?'
         try:
             self.cursor.execute(sql, (param,))
@@ -105,22 +107,22 @@ class FamilyMemberMapper(DB):
 
 
 if __name__ == '__main__':
-    # db = DB('household')
-    # db.connect()
-    # db.drop_table('members')
-    # db.create_table(
-    #     'members',
-    #     name='VARCHAR(32)',
-    #     patronymic='VARCHAR(32)',
-    #     surname='VARCHAR(32)',
-    #     birthdate='VARCHAR(32)'
-    # )
-    #
-    # db.create_table(
-    #     'sources',
-    #     name='VARCHAR(32)',
-    #     is_regular='BOOLEAN'
-    # )
+    db = DB('household')
+    db.connect()
+    db.drop_table('members')
+    db.create_table(
+        'members',
+        name='VARCHAR(32)',
+        patronymic='VARCHAR(32)',
+        surname='VARCHAR(32)',
+        birthdate='VARCHAR(32)'
+    )
+
+    db.create_table(
+        'sources',
+        name='VARCHAR(32)',
+        is_regular='BOOLEAN'
+    )
 
     mapper = FamilyMemberMapper('household')
 
